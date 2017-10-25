@@ -1,3 +1,7 @@
+selmi_job:
+    resource: "@SelmiJobBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

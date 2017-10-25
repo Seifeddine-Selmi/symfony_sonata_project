@@ -1,0 +1,3 @@
+selmi_job_homepage:
+    path:     /
+    defaults: { _controller: SelmiJobBundle:Default:index }
