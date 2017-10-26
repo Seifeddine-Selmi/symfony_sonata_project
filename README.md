@@ -282,7 +282,7 @@ Avec Twig, le moteur de template par défaut de Symfony2, vous pouvez définir des
 ```
 
 ```
-{% extends 'EnsJobeetBundle::layout.html.twig' %}
+{% extends 'SelmiJobBundle::layout.html.twig' %}
  
 {% block content %}
   <!-- original template code goes here -->
@@ -290,3 +290,25 @@ Avec Twig, le moteur de template par défaut de Symfony2, vous pouvez définir des
 ```
 
 
+## 10- Les feuilles de style, images, et javascripts
+```
+src/Selmi/JobBundle/Resources/public/images/
+src/Selmi/JobBundle/Resources/public/css/
+```
+
+### Maintenant, exécutez la commande pour dire à Symfony de les rendre accessibles au public.
+```
+php app/console assets:install web
+```
+
+### Pour ajouter un nouveau fichier CSS dans un template nous allons remplacer le bloc de feuilles de style, mais appeler le parent avant d'ajouter le nouveau fichier CSS 
+### (afin que nous ayons le fichier main.css et les fichiers CSS supplémentaires dont nous avons besoin).
+```
+{# src/Selmi/JobBundle/Resources/views/Job/index.html.twig #}
+{% extends 'SelmiJobBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/selmijob/css/jobs.css') }}" type="text/css" media="all" />
+{% endblock %}
+```

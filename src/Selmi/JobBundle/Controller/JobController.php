@@ -57,13 +57,37 @@ class JobController extends Controller
      * Finds and displays a Job entity.
      *
      */
-    public function showAction(Job $job)
+    public function showInitAction(Job $job)
     {
         $deleteForm = $this->createDeleteForm($job);
 
         return $this->render('SelmiJobBundle:Job:show.html.twig', array(
             'job' => $job,
             'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Finds and displays a Job entity.
+     *
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $job = $em->getRepository('SelmiJobBundle:Job')->find($id);
+
+        if (!$job) {
+            throw $this->createNotFoundException('Unable to find Job entity.');
+        }
+
+        //$deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($job);
+
+        return $this->render('SelmiJobBundle:Job:show.html.twig', array(
+            'job' => $job,
+            'delete_form' => $deleteForm->createView(),
+
         ));
     }
 
