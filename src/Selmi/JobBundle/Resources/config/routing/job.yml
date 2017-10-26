@@ -1,0 +1,24 @@
+selmi_job_index:
+    path:     /
+    defaults: { _controller: "SelmiJobBundle:Job:index" }
+    methods:  GET
+
+selmi_job_show:
+    path:     /{id}/show
+    defaults: { _controller: "SelmiJobBundle:Job:show" }
+    methods:  GET
+
+selmi_job_new:
+    path:     /new
+    defaults: { _controller: "SelmiJobBundle:Job:new" }
+    methods:  [GET, POST]
+
+selmi_job_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SelmiJobBundle:Job:edit" }
+    methods:  [GET, POST]
+
+selmi_job_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SelmiJobBundle:Job:delete" }
+    methods:  DELETE
