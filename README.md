@@ -1,9 +1,6 @@
-symfony_sonata_project
+
+Symfony PHP Framework
 ======================
-
-A Symfony project created on October 25, 2017, 2:05 am.
-
-# Symfony PHP Framework
 
 ## Installer Composer
  https://getcomposer.org/doc/00-intro.md
@@ -35,7 +32,7 @@ A Symfony project created on October 25, 2017, 2:05 am.
 
 
  
-## Via Composer Create-Project
+## Via symfony new
 
   ### symfony new symfony_sonata_project 2.8.3
   
@@ -253,5 +250,43 @@ http://job.dev/job/
 http://job.dev/app_dev.php/job/
 ```
 
+## 7- L'architecture MVC (Modèle Vue Contrôleur)
+```
+Pour le développement web, la solution la plus courante pour organiser le code de nos jours est le modèle de conception MVC. En bref, le modèle de conception MVC définit un moyen 
+d'organiser votre code en fonction de sa nature. Ce modèle sépare le code en trois couches:
+
+- La couche Modèle (Model) définit la logique métier (la BDD appartenant à cette couche). Vous savez déjà que Symfony2 stocke toutes les classes et les fichiers relatifs au modèle
+  dans le répertoire de vos paquets Entity/.
+- La Vue (View) est ce avec quoi l'utilisateur interagit (un moteur de template fait partie de cette couche). Dans Symfony2, la couche Vue est principalement faite de templates Twig.
+  Ils sont stockés dans plusieurs répertoires Resources/views/ comme nous le verrons plus loin.
+- Le Contrôleur (Controller) est un morceau de code qui appelle le modèle pour obtenir certaines données qu'il passe à la Vue pour le rendre au Client. Lorsque nous avons installé 
+  Symfony au début de ce tutoriel, nous avons vu que toutes les demandes sont gérées par des contrôleurs frontaux (app.php et app_dev.php). Ces contrôleurs frontaux délèguent le réel
+  travail à des actions.
+```
+
+## 8- La mise en page
+```
+- Nous avons besoin de trouver un moyen d'empêcher ces éléments communs de se dupliquer. 
+- Une façon de résoudre le problème est de définir une en-tête et un pied de page et de les inclure dans chaque modèle. 
+- Le modèle décorateur résout le problème dans l'autre sens: le template est décoré après que le contenu soit rendu par un template global, appelé layout.
+- Créez un nouveau fichier layout.html.twig dans le répertoire src/Selmi/JobBundle/Resources/views/ 
+```
+
+## 9- Blocs Twig
+```
+Avec Twig, le moteur de template par défaut de Symfony2, vous pouvez définir des blocs comme nous l'avons fait ci-dessus. Un bloc Twig peut avoir un contenu par défaut 
+ qui peut être remplacé ou étendu dans le template enfant comme vous le verrez dans un instant.
+ 
+ Maintenant, pour faire usage du nouveau layout que nous avons créé, nous avons besoin de modifier tous les modèles d'offres (edit, index, new et show à partir de src/Selmi/JobBundle/Resources/views/job/) 
+ afin d'étendre le template parent (layout) et pour remplacer le bloc de contenu, nous avons défini:
+```
+
+```
+{% extends 'EnsJobeetBundle::layout.html.twig' %}
+ 
+{% block content %}
+  <!-- original template code goes here -->
+{% endblock %}
+```
 
 
