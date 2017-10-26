@@ -14,18 +14,21 @@ A Symfony project created on October 25, 2017, 2:05 am.
   ### composer create-project symfony/framework-standard-edition symfony_sonata_project 2.8.3 
   ### or php composer.phar create-project symfony/framework-standard-edition symfony_sonata_project 2.8.3 
   
-  ###$ cd symfony-symfony_sonata_project/
+  ### cd symfony-symfony_sonata_project/
   
-  ###$ php app/console server:run
+  ### php app/console server:run
   
     http://localhost:8000/
 
 ## Installer Symfony
  
 ### linux and mac
- sudo mkdir -p /usr/local/bin
- sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
- sudo chmod a+x /usr/local/bin/symfony
+```
+  sudo mkdir -p /usr/local/bin
+  sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+  sudo chmod a+x /usr/local/bin/symfony
+```
+
 
 ### windows
  php -r "file_put_contents('symfony', file_get_contents('https://symfony.com/installer'));"
@@ -36,9 +39,9 @@ A Symfony project created on October 25, 2017, 2:05 am.
 
   ### symfony new symfony_sonata_project 2.8.3
   
-  ###$ cd symfony-symfony_sonata_project/
+  ### cd symfony-symfony_sonata_project/
   
-  ###$ php app/console server:run
+  ### php app/console server:run
   
     http://localhost:8000/
     
@@ -76,10 +79,12 @@ A Symfony project created on October 25, 2017, 2:05 am.
 127.0.0.1   job.dev
 ```
 	
-http://job.dev/
-http://job.dev/app_dev.php
-http://job.dev/config.php
 	
+```
+ http://job.dev/
+ http://job.dev/app_dev.php
+ http://job.dev/config.php
+```
 	
 ## La console Symfony2
 ```
@@ -242,8 +247,11 @@ php app/console cache:clear --env=dev
 php app/console debug:router
 ```
 
+
+```
 http://job.dev/job/
 http://job.dev/app_dev.php/job/
+```
 
 
 
